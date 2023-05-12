@@ -22,6 +22,8 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use('/api', require("./routes/getAll")); 
+app.use('/api', require("./routes/setOrder")); 
+app.use('/api', require("./routes/getOrder")); 
 app.use('/api', require("./routes/auth")); 
 
 app.get('/', (req, res) => {
