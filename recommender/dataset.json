@@ -1,0 +1,340 @@
+[{
+  "CategoryName": "Pizza",
+  "name": "Margherita Pizza",
+  "options": [
+    {
+      "regular": "150",
+      "medium": "250",
+      "large": "350"
+    }
+  ],
+  "img": "https://images.pexels.com/photos/13814644/pexels-photo-13814644.jpeg?cs=srgb&dl=pexels-rene-strgar-13814644.jpg&fm=jpg",
+"description": "Classic pizza with tomato sauce, mozzarella cheese, and fresh basil leaves."
+},
+ {
+   "CategoryName": "Burger",
+   "name": "Cheeseburger",
+   "options": [
+     {
+       "single": "150",
+       "double": "200"
+     }
+   ],
+   "img": "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?cs=srgb&dl=pexels-rajesh-tp-1633578.jpg&fm=jpg",
+"description": "Classic cheeseburger with melted cheddar cheese, lettuce, tomato, and pickles."
+ },
+ {
+   "CategoryName": "Salad",
+   "name": "Caesar Salad",
+   "options": [
+     {
+       "regular": "120",
+       "large": "180"
+     }
+   ],
+   "img":"https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?cs=srgb&dl=pexels-julie-aagaard-2097090.jpg&fm=jpg",
+"description": "Fresh romaine lettuce, parmesan cheese, croutons, and Caesar dressing."
+ },
+ {
+   "CategoryName": "Sandwich",
+   "name": "Grilled Cheese Sandwich",
+   "options": [
+     {
+       "regular": "100",
+       "toasted": "120"
+     }
+   ],
+   "img":"https://images.pexels.com/photos/7729372/pexels-photo-7729372.jpeg?cs=srgb&dl=pexels-lucas-guizo-7729372.jpg&fm=jpg",
+"description": "Classic grilled cheese sandwich with melted cheese between crispy toasted bread slices."
+ },
+ {
+   "CategoryName": "Dessert",
+   "name": "Chocolate Brownie",
+   "options": [
+     {
+       "regular": "80",
+       "with ice cream": "120"
+     }
+   ],
+   "img":"https://images.pexels.com/photos/3026804/pexels-photo-3026804.jpeg?cs=srgb&dl=pexels-ella-olsson-3026804.jpg&fm=jpg",
+"description": "Rich and fudgy chocolate brownie served with a scoop of vanilla ice cream."
+ },
+ {
+   "CategoryName": "Pasta",
+   "name": "Spaghetti Bolognese",
+   "options": [
+     {
+       "regular": "140",
+       "large": "200"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/10456299/pexels-photo-10456299.jpeg?cs=srgb&dl=pexels-darya-sheydel-10456299.jpg&fm=jpg",
+"description": "Classic spaghetti pasta with meaty Bolognese sauce and grated parmesan cheese."
+ },
+ {
+   "CategoryName": "Soup",
+   "name": "Tomato Soup",
+   "options": [
+     {
+       "regular": "90",
+       "large": "140"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/3493579/pexels-photo-3493579.jpeg?cs=srgb&dl=pexels-votsis-panagiotis-3493579.jpg&fm=jpg",
+"description": "Hot and tangy tomato soup with a hint of herbs and spices."
+ },
+ {
+   "CategoryName": "Breakfast",
+   "name": "Egg Omelette",
+   "options": [
+     {
+       "plain": "60",
+       "with veggies": "80",
+       "with cheese": "100"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/10159720/pexels-photo-10159720.jpeg?cs=srgb&dl=pexels-zn%E2%80%99s-food%26natureart-10159720.jpg&fm=jpg",
+"description": "Fluffy omelette made with farm-fresh eggs, cooked to perfection."
+ },
+ {
+   "CategoryName": "Biryani/Rice",
+   "name": "Veg Biryani",
+   "options": [
+     {
+       "regular": "150",
+       "large": "250"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/5410401/pexels-photo-5410401.jpeg?cs=srgb&dl=pexels-saveurs-secretes-5410401.jpg&fm=jpg",
+"description": "Flavorful rice dish cooked with a mix of aromatic spices and vegetables."
+ },
+ {
+   "CategoryName": "Pizza",
+   "name": "Pepperoni Pizza",
+   "options": [
+     {
+       "regular": "180",
+       "medium": "280",
+       "large": "380"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/3682837/pexels-photo-3682837.jpeg?cs=srgb&dl=pexels-victor-miyata-3682837.jpg&fm=jpg",
+"description": "Classic pizza topped with delicious pepperoni slices and melted cheese."
+ },
+ {
+   "CategoryName": "Burger",
+   "name": "Veggie Burger",
+   "options": [
+     {
+       "single": "120",
+       "double": "180"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/1251198/pexels-photo-1251198.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1251198.jpg&fm=jpg",
+"description": "Delicious veggie patty burger with lettuce, tomato, and special sauce."
+ },
+ {
+   "CategoryName": "Salad",
+   "name": "Greek Salad",
+   "options": [
+     {
+       "regular": "130",
+       "large": "200"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?cs=srgb&dl=pexels-iina-luoto-1211887.jpg&fm=jpg",
+"description": "Refreshing salad with cucumbers, tomatoes, olives, feta cheese, and Greek dressing."
+ },
+ {
+   "CategoryName": "Sandwich",
+   "name": "Club Sandwich",
+   "options": [
+     {
+       "regular": "140",
+       "toasted": "160"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/1633525/pexels-photo-1633525.jpeg?cs=srgb&dl=pexels-rajesh-tp-1633525.jpg&fm=jpg",
+"description": "Triple-layered sandwich with turkey, bacon, lettuce, tomato, and mayonnaise."
+ },
+ {
+   "CategoryName": "Dessert",
+   "name": "Strawberry Cheesecake",
+   "options": [
+     {
+       "slice": "120",
+       "whole": "500"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/13150094/pexels-photo-13150094.jpeg?cs=srgb&dl=pexels-razane-adra-13150094.jpg&fm=jpg",
+"description": "Creamy cheesecake with a sweet strawberry topping and a buttery graham cracker crust."
+ },
+ {
+   "CategoryName": "Pasta",
+   "name": "Penne Alfredo",
+   "options": [
+     {
+       "regular": "130",
+       "large": "200"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/3214161/pexels-photo-3214161.jpeg?cs=srgb&dl=pexels-engin-akyurt-3214161.jpg&fm=jpg",
+"description": "Pasta dish with penne noodles tossed in a creamy Alfredo sauce and sprinkled with parmesan cheese."
+ },
+ {
+   "CategoryName": "Soup",
+   "name": "Chicken Noodle Soup",
+   "options": [
+     {
+       "regular": "100",
+       "large": "150"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/10338448/pexels-photo-10338448.jpeg?cs=srgb&dl=pexels-istvan-szabo-10338448.jpg&fm=jpg",
+"description": "Comforting soup with tender chicken, noodles, vegetables, and flavorful broth."
+ },
+ {
+   "CategoryName": "Breakfast",
+   "name": "Pancakes",
+   "options": [
+     {
+       "plain": "80",
+       "with berries": "100",
+       "with maple syrup": "120"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/3323680/pexels-photo-3323680.jpeg?cs=srgb&dl=pexels-olena-bohovyk-3323680.jpg&fm=jpg",
+"description": "Fluffy pancakes served with butter and a choice of toppings."
+ },
+ {
+   "CategoryName": "Biryani/Rice",
+   "name": "Shrimp Biryani",
+   "options": [
+     {
+       "regular": "180",
+       "large": "280"
+     }
+   ],
+  
+   "img":"https://4.bp.blogspot.com/-qzlSIrSasi8/VoJ-oCJ_ntI/AAAAAAAAAW8/YyR-IvzeG9I/s1600/spicy-prawn-biryani-recipe-dish.jpg",
+"description": "Flavorful rice dish cooked with aromatic spices and succulent shrimp."
+ },
+ {
+   "CategoryName": "Pizza",
+   "name": "Hawaiian Pizza",
+   "options": [
+     {
+       "regular": "160",
+       "medium": "260",
+       "large": "360"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/15264020/pexels-photo-15264020.jpeg?cs=srgb&dl=pexels-nadin-sh-15264020.jpg&fm=jpg",
+"description": "Pizza topped with ham, pineapple chunks, and melted cheese for a sweet and savory combination."
+ },
+ {
+   "CategoryName": "Burger",
+   "name": "Mushroom Swiss Burger",
+   "options": [
+     {
+       "single": "140",
+       "double": "200"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/5474630/pexels-photo-5474630.jpeg?cs=srgb&dl=pexels-chicken-mackay-5474630.jpg&fm=jpg",
+"description": "Juicy beef patty topped with sautéed mushrooms, Swiss cheese, lettuce, and mayo."
+ },
+ {
+   "CategoryName": "Salad",
+   "name": "Cobb Salad",
+   "options": [
+     {
+       "regular": "150",
+       "large": "220"
+     }
+   ],
+  
+   "img":"https://i.pinimg.com/originals/f7/71/90/f771907ae84fc9d298724767ae05a4d8.png",
+"description": "Hearty salad with grilled chicken, bacon, avocado, hard-boiled eggs, tomatoes, and blue cheese crumbles."
+ },
+ {
+   "CategoryName": "Sandwich",
+   "name": "Tuna Salad Sandwich",
+   "options": [
+     {
+       "regular": "110",
+       "toasted": "130"
+     }
+   ],
+  
+   "img":"https://2static.fjcdn.com/large/pictures/27/74/2774ad_5575972.jpg",
+"description": "Delicious sandwich filled with tuna salad, lettuce, tomato, and pickles."
+ },
+ {
+   "CategoryName": "Dessert",
+   "name": "Apple Pie",
+   "options": [
+     {
+       "slice": "100",
+       "whole": "400"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/7790871/pexels-photo-7790871.jpeg?cs=srgb&dl=pexels-mary-nikitina-7790871.jpg&fm=jpg",
+"description": "Classic apple pie with a flaky crust and warm cinnamon-spiced apple filling."
+ },
+ {
+   "CategoryName": "Pasta",
+   "name": "Lemon Garlic Shrimp Pasta",
+   "options": [
+     {
+       "regular": "160",
+       "large": "240"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/2092906/pexels-photo-2092906.jpeg?cs=srgb&dl=pexels-anthony-leong-2092906.jpg&fm=jpg",
+"description": "Pasta dish with tender shrimp, lemon-garlic sauce, and a sprinkle of parmesan cheese."
+ },
+ {
+   "CategoryName": "Soup",
+   "name": "Butternut Squash Soup",
+   "options": [
+     {
+       "regular": "110",
+       "large": "160"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/1277483/pexels-photo-1277483.jpeg?cs=srgb&dl=pexels-valeria-boltneva-1277483.jpg&fm=jpg",
+"description": "Creamy soup made with roasted butternut squash, spices, and a touch of cream."
+ },
+ {
+   "CategoryName": "Breakfast",
+   "name": "French Toast",
+   "options": [
+     {
+       "plain": "90",
+       "with berries": "110",
+       "with maple syrup": "130"
+     }
+   ],
+  
+   "img":"https://images.pexels.com/photos/10232459/pexels-photo-10232459.jpeg?cs=srgb&dl=pexels-zn%E2%80%99s-food%26natureart-10232459.jpg&fm=jpg",
+"description": "Thick slices of bread soaked in a mixture of eggs and milk, cooked until golden brown, and served with butter and syrup."
+ }
+ ]
