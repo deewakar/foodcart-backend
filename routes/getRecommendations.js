@@ -10,10 +10,10 @@ router.post("/recommendations", async(req, res) => {
     let resObj = [];
 
     if(userData) {
-      resObj = userData.recommended_items;
+      resObj = userData.recommended_items[0];
     }
 
-    res.json({orderData: resObj});
+    res.json({data: resObj});
   } catch(error) {
     console.log(error.message);
     res.send(500, error.message);

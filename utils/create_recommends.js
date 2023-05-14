@@ -28,6 +28,12 @@ async function get_all_items (email) {
 }
 
 async function dt_classifier(freq_data) {
+
+  if (!freq_data)
+    return []; 
+
+  //console.log('frequency data:' +JSON.stringify(freq_data));
+
   // get all meal items
   //let conn = await mongoose.connect(mongoURI, {useNewUrlParser: true});
   const all_docs = await mongoose.connection.db.collection("meal_items");
@@ -50,7 +56,7 @@ async function dt_classifier(freq_data) {
     }
     }
   //console.log(recommended_items);
-  //console.log(training_data);
+  //console.log('training data:' + JSON.stringify(training_data));
 
   
   // construct a decision tree using the training dataset 
@@ -85,9 +91,8 @@ async function dt_classifier(freq_data) {
 }
 
 
-async function main() {
+async function createRecommendations(email) {
   const conn = await mongoose.connect(mongoURI, {useNewUrlParser: true });
-  const email = "viru123@gmail.com";
   let freq_data = await get_all_items(email);
 
   // send freq_data to decision tree classifier (DTC) function
@@ -113,6 +118,9 @@ async function main() {
     conn.disconnect();
 }
 
-main();
+if(process.argv[2])
+  createRecommendations(process.argv[2]);
+
+module.exports = createRecommendations;
 
 

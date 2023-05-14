@@ -5,9 +5,13 @@ const router = express.Router();
 
 const Order = require('../models/Order');
 
+const { fork } = require('child_process');
+
+const create_recommends_path = require.resolve('../utils/create_recommends');
+
 router.post('/orderFood', async(req, res) => {
-let data = req.body.order_data
-    await data.splice(0,0,{Order_date:req.body.order_date})
+  let data = req.body.order_data
+  await data.splice(0,0,{Order_date:req.body.order_date})
 
   // if email does not exist, then create else insert
     let eId = await Order.findOne({ 'email': req.body.email })    
@@ -37,6 +41,10 @@ let data = req.body.order_data
             res.send(500, error.message)
         }
     }
+
+  // create/update recommendations collection for this user
+  const child = fork(create_recommends_path, [req.body.email]);
+
 })
 
 module.exports = router;
