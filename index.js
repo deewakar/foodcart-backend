@@ -25,6 +25,7 @@ app.use('/api', require("./routes/getAll"));
 app.use('/api', require("./routes/setOrder")); 
 app.use('/api', require("./routes/getOrder")); 
 app.use('/api', require("./routes/getRecommendations")); 
+app.use('/api', require("./routes/getPopular")); 
 app.use('/api', require("./routes/auth")); 
 
 app.get('/', (req, res) => {

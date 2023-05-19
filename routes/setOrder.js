@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const Order = require('../models/Order');
+const Popular = require('../models/Popular');
 
 const { fork } = require('child_process');
 
@@ -26,7 +27,6 @@ router.post('/orderFood', async(req, res) => {
         } catch (error) {
             console.log(error.message)
             res.send(500, error.message)
-
         }
     }
 
@@ -45,6 +45,35 @@ router.post('/orderFood', async(req, res) => {
   // create/update recommendations collection for this user
   const child = fork(create_recommends_path, [req.body.email]);
 
-})
+  // Keep count for popularity of each food item
+  let popularity_index = {};
+  data.slice(1).map((item) => {
+    popularity_index[item.id] = {'name': item.name,
+                                 'count': (popularity_index[item.id]?.count ?? 0) + parseInt(item.qty)};
+  });
+
+  Object.keys(popularity_index).forEach(async (id) => {
+    let fId = await Popular.findOne({ 'food_id': id })    
+    if (fId===null) {
+      try {
+        await Popular.create({
+          food_id: id,
+          food_name: popularity_index[id].name,
+          popularity_count: popularity_index[id].count,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        await Popular.findOneAndUpdate({'food_id': id},
+                                 { $inc:{popularity_count: popularity_index[id].count} });
+
+      } catch (error) {
+        console.log(error);
+      }
+  }
+  });
+});
 
 module.exports = router;
