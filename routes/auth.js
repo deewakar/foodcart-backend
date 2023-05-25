@@ -16,7 +16,8 @@ router.post('/createuser/', [
   /* validate given details before creating a new user */
   body('email').isEmail(),
   body('password').isLength({min: 6 }),
-  body('name').isLength({ min: 3 })
+  body('name').isLength({ min: 3 }),
+  body('phone').isMobilePhone('ne-NP', true)
 ],async(req, res) => {
   const errors = validationResult(req);
   if(!errors.isEmpty()) {
@@ -30,6 +31,7 @@ router.post('/createuser/', [
       name: req.body.name,
       password: passwordHash,
       email: req.body.email,
+        phone: req.body.phone,
       location: req.body.location
     });
     res.json({success: true});
