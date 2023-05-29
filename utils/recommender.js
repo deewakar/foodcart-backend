@@ -89,7 +89,7 @@ async function dt_classifier(freq_data) {
     console.log("random forest: "+JSON.stringify(randomForest.predict(item)));
     let prediction = randomForest.predict(test_item);
 
-    if(prediction['yes'] == config.maxTrees)
+    if(prediction['yes'] > prediction['no'])
       documents.push(item);
   });
 
