@@ -8,7 +8,7 @@ const Popular = require('../models/Popular');
 
 const { fork } = require('child_process');
 
-const create_recommends_path = require.resolve('../utils/create_recommends');
+const recommender_path = require.resolve('../utils/recommender');
 
 router.post('/orderFood', async(req, res) => {
   let data = req.body.order_data
@@ -43,15 +43,16 @@ router.post('/orderFood', async(req, res) => {
     }
 
   // create/update recommendations collection for this user
-  const child = fork(create_recommends_path, [req.body.email]);
+  const child = fork(recommender_path, [req.body.email]);
 
-  // Keep count for popularity of each food item
+  // get the order quantities of each food item ordered
   let popularity_index = {};
   data.slice(1).map((item) => {
     popularity_index[item.id] = {'name': item.name,
                                  'count': (popularity_index[item.id]?.count ?? 0) + parseInt(item.qty)};
   });
 
+  // update popularity count for each food item
   Object.keys(popularity_index).forEach(async (id) => {
     let fId = await Popular.findOne({ 'food_id': id })    
     if (fId===null) {

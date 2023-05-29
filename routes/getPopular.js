@@ -11,12 +11,16 @@ function cmp(a, b) {
 
 router.post("/popular", async(req, res) => {
   try {
+    // get data from 'populars' database
     let PopularData = await Order.find({});
 
     let all_items = await global.all_items;
+    // create a hashmap of all the food items, with key as their id
     let item_map = {};
     all_items.map((obj) => item_map[obj["_id"]] = obj);
+    console.log(item_map);
 
+    // get four most popular food items
     PopularData = PopularData.sort(cmp).slice(0,4);
     resObj = PopularData.map((obj) => item_map[obj.food_id]);
     res.json(resObj);
