@@ -49,12 +49,6 @@ class RandomForest {
     }
     return res;
   }
-
-  test(test){
-    this.buildForest();
-    console.log(this.predict(test));
-
-  }
 }
 
 module.exports = RandomForest;

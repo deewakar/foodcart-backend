@@ -4,7 +4,7 @@
   "description": "The backend part of the 'FoodCart' project. Serves a json based REST API using node, express.js and mongodb.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --testTimeout=12000 ./__tests__"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "mongoose": "^6.3.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3"
   }
 }
