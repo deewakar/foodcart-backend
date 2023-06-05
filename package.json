@@ -4,7 +4,7 @@
   "description": "The backend part of the 'FoodCart' project. Serves a json based REST API using node, express.js and mongodb.",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --testTimeout=12000 ./__tests__"
+    "test": "jest --testTimeout=12000 ./__tests__"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "jest": "^29.5.0",
+    "mongodb-memory-server": "^8.12.2",
     "nodemon": "^2.0.22",
     "supertest": "^6.3.3"
   }
