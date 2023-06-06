@@ -31,7 +31,7 @@ router.post('/createuser/', [
       name: req.body.name,
       password: passwordHash,
       email: req.body.email,
-        phone: req.body.phone,
+      phone: req.body.phone,
       location: req.body.location
     });
     res.json({success: true});
@@ -43,7 +43,7 @@ router.post('/createuser/', [
 
 
 router.post('/login/', [
-  /* validate given details before creating a new user */
+  /* validate given details before loggin in */
   body('email').isEmail(),
   body('password').isLength({min: 6 }),
 ],async(req, res) => {

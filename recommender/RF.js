@@ -39,6 +39,7 @@ class RandomForest {
     this.trees = forest;
   }
 
+  /* predict a class by counting the 'yes' and 'no' votes */
   predict(testObject) {
     let res = {'yes': 0, 'no': 0};
     for(let tree of this.trees) {

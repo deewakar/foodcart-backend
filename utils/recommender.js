@@ -42,13 +42,11 @@ async function dt_classifier(freq_data) {
 
   // build a training dataset using the freq_data, meal_items that have qty >= 2, put 'preference' = true else put false
   let preferred_items = items.filter((item) => freq_data[item._id.toString()] >= 2);
-  //console.log(preferred_items);
   let training_data = preferred_items.map((item) => {
     let item_copy = trimObject(item, ['CategoryName', '_price', '_source']);
     item_copy.preference = 'yes';
     return item_copy;
   });
-  //console.log(training_data);
   // add equal amount of objects to training_data with preference = false
   // these objects should not be in preferred_items
   const length = training_data.length;
@@ -60,7 +58,6 @@ async function dt_classifier(freq_data) {
       i++;
     }
     }
-  //console.log(training_data);
   
     let config = {
       trainingSet: training_data,
@@ -68,32 +65,21 @@ async function dt_classifier(freq_data) {
       maxTrees: 3,
     };
   
-  //let dt = new DecisionTree(config);
-  //dt.createDecisionTree();
-  //console.log(JSON.stringify(dt.root,null, 4));
-
   let randomForest = new RandomForest(config);
   randomForest.buildForest();
-
-  //for (let t of randomForest.trees)
-  //console.log(JSON.stringify(t.root, null, 4));
-  
 
   let documents = [];
   // for each item, find the value for class 'preference'
   // if 'preference = yes' vote is greater than 'preference = no', add it to recommendations for the user
   items.map((item) => {
     let test_item = trimObject(item, ['CategoryName', '_price', '_source']);
-    //let res = decisionTree.predict(item);
-    //console.log("random forest: "+JSON.stringify(randomForest.predict(item)));
     let prediction = randomForest.predict(test_item);
 
     if(prediction['yes'] > prediction['no'])
       documents.push(item);
   });
 
-  //console.log(documents);
-  // return the array of objects (meal items) recommendation for the user
+  // return the array of recommended food items for the user
   return documents;
 }
 
@@ -106,7 +92,6 @@ async function createRecommendations(email) {
   // DTC function should return an array of recommended meal_items object
   // convert it to a document for the given user email using a suitable model
   // add the document to the recommendations collection in the mongodb atlas
-  //console.log(freq_data);
   let foodItems = await dt_classifier(freq_data);
 
   try {
@@ -129,6 +114,7 @@ async function createRecommendations(email) {
   return foodItems;
 }
 
+// the third argument is the user's email
 if(process.argv[2])
   createRecommendations(process.argv[2]);
 

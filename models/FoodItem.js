@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
+/* Schema for a food item available on the platform */
 const FoodSchema = new Schema({
   "CategoryName": {
     "type": "String"

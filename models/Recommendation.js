@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
+/* Generated recommendations for a user */
 const RecommendationSchema = new Schema({
   email: {
     type: String,

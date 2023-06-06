@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
+/* All food items with their order frequency (popularity count) */
 const PopularSchema = new Schema({
   food_id: {
     type: String,

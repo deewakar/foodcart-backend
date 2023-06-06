@@ -8,7 +8,7 @@ class DecisionTree {
     this.root = null;
   }
 
-  // list all the possible values for given attribute
+  // list of all the possible values for given attribute
   // attr : String => [String, ...]
   attrValues(attr) {
     let res = new Set();
@@ -56,7 +56,7 @@ class DecisionTree {
     return initEntropy - attrEntropy;
   }
 
-  // return a pivot table from the given original table using the split aatribute and the pivot value
+  // return a pivot table from the given original table using the split attribute and the pivot value
   createPivotTable(data, splitAttr, pivot) {
     return data
       .map((row) => {
@@ -77,13 +77,10 @@ class DecisionTree {
   // for root node, the value of splitAttr is this.categoryAttr and pivot should be empty string
   // (data:Object, splitAttr:String, pivot:String) => Object
   buildTree(data, splitAttr, pivot, depth) {
-    //console.log(`======= For Attribute: ${splitAttr} and Value: ${pivot} ========`);
 
     /* find initial entropy */
     let catPosNeg = this.countPosNeg(data, splitAttr, pivot);
     let initEntropy = this.entropy(catPosNeg);
-    //console.log("[pos, neg] = ",catPosNeg);
-    //console.log("initial entropy = ", initEntropy);
 
     if (depth > this.maxTreeDepth)
       return {
@@ -95,7 +92,6 @@ class DecisionTree {
     /* return a subtree with children = null and attr = yes/no */
     if (initEntropy === 0) {
       let decision = catPosNeg[1] === 0 ? 'yes' : 'no';
-      //console.log(`leaf node: ${decision}`);
       return {
         attr: decision,
         children: null,
@@ -104,9 +100,7 @@ class DecisionTree {
 
     /* if pivot == '', then we are working on root node, else we need to generate the pivot table */
     if (pivot !== '') {
-      //console.log('generating pivot table...');
       data = this.createPivotTable(data, splitAttr, pivot);
-      //console.log('pivot table : ', data);
     }
 
     let maxGain = 0.0;
@@ -115,18 +109,15 @@ class DecisionTree {
       /* ignore the actual class attribute */
       if (attr === this.categoryAttr) continue;
       let gain = this.gain(data, initEntropy, attr);
-      //console.log(`for ${attr}, gain = ${gain}`);
       if (gain > maxGain) {
         maxGain = gain;
         splitAttr = attr;
       }
     }
-    //console.log(splitAttr + " has the max gain");
 
     depth += 1;
 
     let children = {};
-    //console.log(`attr: ${splitAttr}, children: ${this.attrValues(splitAttr)}`);
     for (let val of this.attrValues(splitAttr)) {
       children[val] = this.buildTree(data, splitAttr, val, depth);
     }
@@ -142,10 +133,12 @@ class DecisionTree {
   }
 
   predict(testObject) {
+    /* if the root is null or the test data is null, then return error */
     if (!this.root || !testObject) return 'Error';
 
     let root = this.root;
 
+    /* traversing the decision tree until we get to a leaf node */
     while (true) {
       if(!root || root['attr'] === undefined)
         return 'no';
@@ -157,46 +150,5 @@ class DecisionTree {
     }
   }
 
-  test() {
-    /* testing PosNeg and entropy */
-    //console.log(this.countPosNeg(this.trainingSet, 'outlook', 'sunny'));
-    //console.log(this.entropy(this.countPosNeg(this.trainingSet, 'outlook', 'sunny')));
-
-    //console.log(this.countPosNeg(this.trainingSet, 'outlook', 'overcast'));
-    //console.log(this.entropy(this.countPosNeg(this.trainingSet, 'outlook', 'overcast')));
-
-    //console.log(this.countPosNeg(this.trainingSet, 'outlook', 'rain'));
-    //console.log(this.entropy(this.countPosNeg(this.trainingSet, 'outlook', 'rain')));
-
-    /* testing gain function */
-    //let catPosNeg = this.countPosNeg(this.trainingSet, this.categoryAttr, '');
-    //let iEntropy = this.entropy(catPosNeg);
-    //console.log(this.gain(this.trainingSet, iEntropy, 'outlook'));
-    //console.log(this.gain(this.trainingSet, iEntropy, 'temp'));
-    //console.log(this.gain(this.trainingSet, iEntropy, 'humidity'));
-    //console.log(this.gain(this.trainingSet, iEntropy, 'wind'));
-
-    let newdata1 = this.createPivotTable(this.trainingSet, 'outlook', 'sunny');
-    let newdata2 = this.createPivotTable(this.trainingSet, 'outlook', 'rain');
-
-    /*
-    console.log(this.entropy(this.countPosNeg(newdata, 'temp', 'hot')));
-    console.log(this.entropy(this.countPosNeg(newdata, 'temp', 'mild')));
-    console.log(this.entropy(this.countPosNeg(newdata, 'temp', 'cool')));
-    */
-    let posNeg1 = this.countPosNeg(this.trainingSet, 'outlook', 'sunny');
-    let posNeg2 = this.countPosNeg(this.trainingSet, 'outlook', 'rain');
-    //let tree = this.buildTree(this.trainingSet, this.categoryAttr,'');
-    //console.log(JSON.stringify(tree, null, 4));
-    //this.buildTree(this.trainingSet, 'outlook','sunny');
-    //this.buildTree(this.trainingSet, 'outlook','overcast');
-    //this.buildTree(newdata1, 'humidity','high');
-    //this.buildTree(newdata1, 'humidity','normal');
-    //this.buildTree(this.trainingSet, 'outlook','rain');
-    //this.buildTree(newdata2, 'wind','strong');
-    //this.buildTree(newdata2, 'wind','weak');
-
-    this.createDecisionTree();
   }
-}
 module.exports = DecisionTree;

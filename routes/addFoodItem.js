@@ -3,6 +3,7 @@ const router = express.Router();
 
 const food_item = require('../models/FoodItem.js');
 
+/* for adding a new food item to the database */
 router.post("/addfood/", async(req, res) => {
   let cost = Object.values(req.body.options[0]).reduce((acc,item) => acc + parseInt(item), 0);
   try{
