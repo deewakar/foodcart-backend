@@ -144,10 +144,12 @@ const DataSet2 = [
 //dt = new DecisionTree(config);
 //dt.createDecisionTree();
 
-var testObj1 = {'outlook': 'sunny', 'temp': 'hot', 'humidity': 'high', 'wind': 'strong'};
+//console.log(JSON.stringify(dt.root, null, 4))
+//var testObj1 = {'outlook': 'sunny', 'temp': 'hot', 'humidity': 'high', 'wind': 'strong'};
 var testObj2 = {'category': 'Pizza', 'price': 'low', 'source': 'bhaktapur'};
 
-//console.log("Prediction: ", dt.predict(test));
+//console.log("Prediction: ", dt.predict(testObj2));
 rf = new RandomForest(config);
 rf.test(testObj2);
+//console.log(JSON.stringify(rf.trees, null, 4))
 
