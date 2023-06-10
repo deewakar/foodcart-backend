@@ -28,6 +28,7 @@ app.use('/api', require("./routes/getOrder"));
 app.use('/api', require("./routes/getRecommendations")); 
 app.use('/api', require("./routes/getPopular")); 
 app.use('/api', require("./routes/auth")); 
+app.use('/api', require("./routes/getStats")); 
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
