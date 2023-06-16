@@ -98,8 +98,6 @@ async function createRecommendations(email, maxTrees) {
   let {foodItems, trees, votes} = await dt_classifier(freq_data, maxTrees);
 
   try {
-    // only save at most eight items
-    foodItems = foodItems.slice(0,8); 
 
     await Recommendation.findOneAndUpdate({email: email},
                                           {email: email,
