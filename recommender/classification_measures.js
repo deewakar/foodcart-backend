@@ -22,7 +22,7 @@ function calc_measures(facts, prediction) {
     else if(facts[i] == 'no' && prediction[i] === 'yes') fp += 1;
   }
 
-// calculate the accuracy, precision, recall and f1-score for the decisiontree
+  // calculate the accuracy, precision, recall and f1-score for the decisiontree
   let accuracy = (tp + tn)/(tp + tn + fp + fn);
   let precision = tp / (tp + fp);
   let recall = tp / (tp + tn);
@@ -52,10 +52,10 @@ function testDT(training_data, test_data, categoryAttr, maxDepth) {
 }
 
 function testRF(training_data, test_data, categoryAttr, maxTrees) {
-   const config = {
+  const config = {
     trainingSet: training_data,
-     categoryAttr: categoryAttr,
-     maxTrees: maxTrees,
+    categoryAttr: categoryAttr,
+    maxTrees: maxTrees,
   };
 
   rf = new RandomForest(config);
@@ -101,7 +101,7 @@ function testAll(training_section, test_data, test_func, test_param){
   console.log(`Accuracy: ${measures.accuracy} \nPrecision: ${measures.precision} \nRecall: ${measures.recall} \nF1-score: ${measures.f1}\n`);
 
 
-// training for identifying 'virginica' species
+  // training for identifying 'virginica' species
   let training_data_virginica = training_section.map(item => {
     if(item.Species === 'virginica')
       return {...item, 'Species': 'yes'};
@@ -162,6 +162,11 @@ function main(email) {
 
 
   // load the json file
+  // the numerical data from the csv file was converted to categorical data with binning
+  // for sepallength: x <= 5 = "short", x <= 6.5 = "medium", else "long"
+  // for sepalwidth: x <= 3 = "short", else "wide"
+  // for petallength: x <= 3 = "short", x <= 5 = "medium", else "long"
+  // for petalwidth: x <= 1 = "short", x <= 1.5 = "medium", else "wide"
   const data = require('./iris.json');
   let setosa = data.filter(item => item.Species === "setosa");
   let versicolor = data.filter(item => item.Species === "versicolor");
@@ -178,15 +183,16 @@ function main(email) {
   });
 
   
-  console.log("Classification measures for ID3 algorithm implementation");
+  console.log("Classification measures for ID3 algorithm implementation\n");
   testAll(training_section, test_data, testDT, 30);
 
 
-  console.log("Classification measures for Random Forest algorithm implementation");
+  console.log("\nClassification measures for Random Forest algorithm implementation\n");
   let tree_nums = [3, 5, 7, 10, 13, 17, 20, 30, 50, 70, 100];
   let rf_res = [];
 
   for(let x of tree_nums){
+    console.log("\nNumber of trees: ", x);
     obj = testAll(training_section, test_data, testRF, x);
     obj.maxTrees = x;
     rf_res.push(obj);
